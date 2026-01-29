@@ -157,7 +157,7 @@ export default function SellerProductList() {
                 <td className="p-3">#{p.id}</td>
                 <td>
                   <img
-                    src={p.image}
+                    src={p.image} alt="p1"
                     className="w-16 h-16 rounded-lg mx-auto border-2 border-white object-cover"
                   />
                 </td>
@@ -210,7 +210,7 @@ export default function SellerProductList() {
 
             {imageBase64 && (
               <img
-                src={imageBase64}
+                src={imageBase64} alt="p2"
                 className="w-24 h-24 mx-auto mt-3 rounded-lg border-2 border-white"
               />
             )}

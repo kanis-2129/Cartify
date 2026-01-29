@@ -31,28 +31,24 @@ function Navbar({ cartCount }) {
           } absolute md:static top-20 left-0 w-full md:w-auto bg-purple-900 md:bg-transparent text-center md:text-left`}
         >
           <li>
-            <a className="hover:text-yellow-400" href="/">
+            <Link className="hover:text-yellow-400" to="/">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="hover:text-yellow-400" href="#product">
+            <Link className="hover:text-yellow-400" to="/#product">
               Shop
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="hover:text-yellow-400" href="#our-story">
+            <Link className="hover:text-yellow-400" to="/#our-story">
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              onClick={() => navigate("/contact")}
-              className="hover:text-yellow-400 cursor-pointer"
-              href="#"
-            >
+            <Link className="hover:text-yellow-400" to="/contact">
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
 

@@ -31,6 +31,12 @@ export default function SellerOrders() {
   const [orders, setOrders] = useState(ordersData);
   const [filter, setFilter] = useState("all");
   const [selectedOrder, setSelectedOrder] = useState(null);
+  // Example: mark an order as completed
+  const markCompleted = (id) => {
+    setOrders((prev) =>
+      prev.map((o) => (o.id === id ? { ...o, status: "completed" } : o)),
+    );
+  };
 
   const filteredOrders =
     filter === "all" ? orders : orders.filter((o) => o.status === filter);
@@ -63,7 +69,12 @@ export default function SellerOrders() {
           <div className="flex items-center gap-4">
             🔔
             <div className="flex items-center gap-2">
-              <img src="/image/t2.jpg" className="w-9 h-9 rounded-full" />
+              <img
+                src="/image/t2.jpg"
+                className="w-9 h-9 rounded-full"
+                alt="User profile"
+              />
+
               <span className="text-sm font-medium">John Doe</span>
             </div>
           </div>
@@ -122,8 +133,8 @@ export default function SellerOrders() {
                           order.status === "completed"
                             ? "bg-green-100 text-green-600"
                             : order.status === "pending"
-                            ? "bg-yellow-100 text-yellow-600"
-                            : "bg-red-100 text-red-600"
+                              ? "bg-yellow-100 text-yellow-600"
+                              : "bg-red-100 text-red-600"
                         }`}
                       >
                         {order.status}
@@ -173,7 +184,13 @@ export default function SellerOrders() {
               >
                 Close
               </button>
-              <button className="px-4 py-2 bg-green-600 text-white rounded-lg">
+              <button
+                onClick={() => {
+                  markCompleted(selectedOrder.id);
+                  setSelectedOrder(null);
+                }}
+                className="px-4 py-2 bg-green-600 text-white rounded-lg"
+              >
                 Mark Completed
               </button>
             </div>
